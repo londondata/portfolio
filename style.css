@@ -1,0 +1,187 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 24px;
+}
+
+/* Body Styling */
+
+html {
+	max-height: 100vh;
+	max-width: 100vw;
+	overflow: hidden;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	background-image: radial-gradient(rgba(24, 103, 103, 0.75), black 120%);
+}
+
+body::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: repeating-linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 0.15),
+		rgba(0, 0, 0, 0.15) 1px,
+		transparent 1px,
+		transparent 2px
+	);
+}
+
+/* Link Styling */
+
+a:link {
+	color: #d1d9df;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #1f5da5;
+}
+
+a:hover {
+	color: #2b86b5;
+}
+
+/* Terminal Font & Text Styling */
+
+#terminal {
+	margin: 25px;
+	padding: 75px;
+}
+
+/* #terminal::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-radius: 25px;
+	z-index: -1;
+	background-color: rgba(0, 0, 0, 0.3);
+} */
+
+.terminal-container {
+	display: inline-block;
+}
+
+.typing {
+	display: inline-block;
+	overflow: hidden;
+	letter-spacing: 0.27em;
+	/* white-space: nowrap; */
+	font-weight: 700;
+	font-size: 1.2em;
+	border-right: 0.15em solid white;
+	margin: 0 auto;
+	animation: typing 3.5s steps(140, end), blink 0.75s step-end infinite;
+}
+
+.typing-style {
+	color: white;
+	text-shadow: 0 0 5px #c8c8c8;
+}
+
+@keyframes typing {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes blink {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: white;
+	}
+}
+
+/* Main Links */
+
+.links {
+	display: flex;
+	justify-content: center;
+	align-items: space-between;
+	margin-bottom: 25px;
+}
+.links a {
+	padding: 10px;
+	font-size: 1.6rem;
+}
+
+/* About Section */
+
+#about {
+	display: flex;
+	flex-direction: row;
+	display: none;
+}
+
+.about-sections1 {
+	display: flex;
+}
+.about-pics {
+	border-radius: 5px;
+	margin: 10px;
+	margin-bottom: 50px;
+}
+
+.pic1 {
+	height: 425px;
+	width: auto;
+}
+
+.pic2 {
+	height: auto;
+	width: 300px;
+}
+
+/* Resume Section */
+
+#resume {
+	display: none;
+}
+
+/* Portfolio Section */
+
+#portfolio {
+	display: none;
+}
+
+/* Footer */
+.footer-container {
+	display: flex;
+	justify-content: center;
+}
+#footer {
+	position: fixed;
+	bottom: 5px;
+}
+
+.iContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.icons {
+	font-size: 1rem;
+}
+
+.icons a {
+	padding: 10px;
+}
