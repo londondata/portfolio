@@ -45,18 +45,25 @@ a:link {
 }
 
 a:visited {
-	color: #1f5da5;
+	color: #d1d9df;
 }
 
-a:hover {
+.terminal-links a:hover {
 	color: #2b86b5;
+	font-size: 2em;
+	text-shadow: 0 0 15px #c8c8c8;
+}
+
+#main {
+	position: relative;
 }
 
 /* Terminal Font & Text Styling */
 
 #terminal {
-	margin: 25px;
-	padding: 75px;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 /* #terminal::after {
@@ -71,21 +78,23 @@ a:hover {
 	background-color: rgba(0, 0, 0, 0.3);
 } */
 
-.terminal-container {
-	display: inline-block;
+.terminal-section {
+	margin: 25px;
+	padding: 75px;
+	/* display: block; */
 }
 
-.typing {
+/* .typing {
 	display: inline-block;
 	overflow: hidden;
 	letter-spacing: 0.27em;
-	/* white-space: nowrap; */
+	white-space: nowrap;
 	font-weight: 700;
 	font-size: 1.2em;
 	border-right: 0.15em solid white;
 	margin: 0 auto;
-	animation: typing 3.5s steps(140, end), blink 0.75s step-end infinite;
-}
+	animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
+} */
 
 .typing-style {
 	color: white;
@@ -106,61 +115,78 @@ a:hover {
 	to {
 		border-color: transparent;
 	}
-	50% {
+	40% {
+		border-color: transparent;
+	}
+	60% {
 		border-color: white;
 	}
-}
-
-/* Main Links */
-
-.links {
-	display: flex;
-	justify-content: center;
-	align-items: space-between;
-	margin-bottom: 25px;
-}
-.links a {
-	padding: 10px;
-	font-size: 1.6rem;
+	100% {
+		border-color: white;
+	}
 }
 
 /* About Section */
 
 #about {
-	display: flex;
-	flex-direction: row;
-	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: all 0.35s ease-in-out;
+	transform: translateX(100%);
+	position: fixed;
 }
 
-.about-sections1 {
-	display: flex;
-}
-.about-pics {
-	border-radius: 5px;
-	margin: 10px;
-	margin-bottom: 50px;
+.about-open {
+	transform: translateX(0%);
 }
 
-.pic1 {
-	height: 425px;
+.about-section {
+	display: flex;
+	justify-content: space-around;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+.about-pic {
+	border-radius: 10px;
+	padding: 0.3em;
+	height: 40vh;
 	width: auto;
+	z-index: 1;
 }
 
-.pic2 {
-	height: auto;
-	width: 300px;
+.about-text p {
+	font-size: 0.6em;
+	padding: 0.3em;
+}
+
+.about-text p a:link {
+	font-size: 1.5em;
+	color: #d1d9df;
+	text-decoration: none;
+}
+
+.about-text p a:visited {
+	font-size: 1.5em;
+	color: #1f5da5;
+}
+
+.about-text p a:hover {
+	font-size: 1.3em;
+	color: #2b86b5;
 }
 
 /* Resume Section */
 
 #resume {
-	display: none;
+	z-index: -10;
 }
 
 /* Portfolio Section */
 
 #portfolio {
-	display: none;
+	z-index: -10;
 }
 
 /* Footer */
