@@ -12,38 +12,47 @@ const terminalOutputs = [
 	{ idx: 0, text: "click to find out more..." },
 ];
 
-const $terminal = $("ul li");
-
-// terminalTyping();
-
-let typing = true;
+const $terminal = $("#terminal-list");
 
 // typing animation
 const terminalTyping = () => {
-	$terminal.each(function (arrIdx) {
-		let output = terminalOutputs[arrIdx];
-		$(this).text(output.text.slice(0, output.idx));
+	for (const output of terminalOutputs) {
+		let outputLine = output.text.slice(0, output.idx + 1);
+		const $terminaLi = $(`<li class='typing-style'>${outputLine}</li>`);
 
-		setTimeout(() => {
-			if (typing) {
-				if (output.idx > output.length) {
-					typing = false;
+		$terminal.append($terminaLi);
 
-					setTimeout(() => {
-						terminalTyping();
-					}, 20000 * output.idx);
-					return;
-				} else {
-					output.idx++;
-				}
-			} else {
-				if (output.idx === 0) {
-					typing = true;
-				}
+		const print = setInterval(() => {
+			if (output.idx > output.text.length) {
+				clearInterval(print);
 			}
-			terminalTyping();
-		}, 500);
-	});
+			output.idx++;
+			$terminaLi.text(output.text.slice(0, output.idx + 1));
+		}, 150);
+
+		// .text(output.text.slice(0, output.idx));
+
+		// setTimeout(() => {
+		// 	if (typing) {
+		// 		if (output.idx > output.length) {
+		// 			typing = false;
+
+		// 			setTimeout(() => {
+		// 				terminalTyping();
+		// 			}, 20000 * output.idx);
+
+		// 			return;
+		// 		} else {
+		// 			output.idx++;
+		// 		}
+		// 	} else {
+		// 		if (output.idx === 0) {
+		// 			typing = true;
+		// 		}
+		// 	}
+		// 	terminalTyping();
+		// }, 500);
+	}
 };
 
 terminalTyping();
@@ -51,11 +60,51 @@ terminalTyping();
 // Link Listeners
 
 const $aboutLink = $(".about-link");
+const $resumeLink = $(".resume-link");
+const $portfolioLink = $(".portfolio-link");
+
 const $aboutSection = $("#about");
+const $resumeSection = $("#resume");
+const $portfolioSection = $("#portfolio");
+const $terminalSection = $("#terminal");
 
-const terminalLinks = (e) => {
-	console.log("testy!");
-	// $aboutSection.addClass(".about-open");
-};
+const $backNav = $(".back-nav");
 
-// $aboutLink.click(terminalLinks);
+// const terminalLinks = (e) => {};
+
+
+
+$aboutLink.on("click", (e) => {
+	e.preventDefault();
+	$aboutSection.toggleClass("about-open");
+	$terminalSection.toggleClass("terminal-close");
+});
+
+$resumeLink.on("click", (e) => {
+	e.preventDefault();
+	$resumeSection.toggleClass("resume-open");
+	$terminalSection.toggleClass("terminal-close");
+});
+
+$portfolioLink.on("click", (e) => {
+	e.preventDefault();
+	$portfolioSection.toggleClass("portfolio-open");
+	$terminalSection.toggleClass("terminal-close");
+});
+
+$backNav.on("click", (e) => {
+	e.preventDefault();
+
+	if ($aboutSection.hasClass("about-open")) {
+		$aboutSection.toggleClass("about-open");
+		$terminalSection.toggleClass("terminal-close");
+	}
+	if ($resumeSection.hasClass("resume-open")) {
+		$resumeSection.toggleClass("resume-open");
+		$terminalSection.toggleClass("terminal-close");
+	}
+	if ($portfolioSection.hasClass("portfolio-open")) {
+		$portfolioSection.toggleClass("portfolio-open");
+		$terminalSection.toggleClass("terminal-close");
+	}
+});

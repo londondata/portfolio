@@ -24,6 +24,7 @@ body {
 body::after {
 	content: "";
 	position: absolute;
+	pointer-events: none;
 	top: 0;
 	left: 0;
 	height: 100vh;
@@ -48,22 +49,23 @@ a:visited {
 	color: #d1d9df;
 }
 
-.terminal-links a:hover {
+a:hover {
 	color: #2b86b5;
-	font-size: 2em;
+	font-size: 1.5em;
 	text-shadow: 0 0 15px #c8c8c8;
 }
 
-#main {
-	position: relative;
+main {
+	overflow: hidden;
 }
 
 /* Terminal Font & Text Styling */
 
-#terminal {
-	position: absolute;
-	top: 0;
-	left: 0;
+/* #terminal {
+} */
+
+.terminal-close {
+	display: none;
 }
 
 /* #terminal::after {
@@ -82,6 +84,14 @@ a:visited {
 	margin: 25px;
 	padding: 75px;
 	/* display: block; */
+}
+
+#terminal-list {
+	list-style: none;
+}
+
+.terminal-disappear {
+	display: none;
 }
 
 /* .typing {
@@ -129,64 +139,107 @@ a:visited {
 /* About Section */
 
 #about {
+	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	transition: all 0.35s ease-in-out;
-	transform: translateX(100%);
-	position: fixed;
+	transition: all 1s ease-in-out;
+	transform: translateX(-110%);
+	margin: 0.5em;
 }
 
 .about-open {
-	transform: translateX(0%);
+	transform: translateX(0%) !important;
 }
 
 .about-section {
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 	padding: 0.5em;
 	margin: 0.5em;
 }
 .about-pic {
 	border-radius: 10px;
 	padding: 0.3em;
-	height: 40vh;
+	height: 50vh;
 	width: auto;
-	z-index: 1;
+	position: static;
+	z-index: 3;
+	background: none;
 }
 
 .about-text p {
 	font-size: 0.6em;
-	padding: 0.3em;
+	padding: 0.5em;
 }
 
-.about-text p a:link {
-	font-size: 1.5em;
+/* .about-text p a:link {
+	font-size: 1.3em;
 	color: #d1d9df;
 	text-decoration: none;
 }
 
 .about-text p a:visited {
-	font-size: 1.5em;
-	color: #1f5da5;
+	font-size: 1.3em;
+	color: #d1d9df;
 }
 
 .about-text p a:hover {
-	font-size: 1.3em;
+	font-size: 1.5em;
 	color: #2b86b5;
+} */
+
+.back-nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.back-nav a {
+	padding: 0.5rem;
 }
 
 /* Resume Section */
 
 #resume {
-	z-index: -10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: all 0.5s ease-in-out;
+	transform: translateY(100%);
+}
+
+.resume-open {
+	transform: translateY(0%) !important;
 }
 
 /* Portfolio Section */
 
 #portfolio {
-	z-index: -10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	transition: all 1s ease-in-out;
+	transform: translateX(100%);
+}
+
+.portfolio-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 25px;
+	margin: 20px;
+}
+
+.portfolio-open {
+	transform: translateX(0%) !important;
 }
 
 /* Footer */
