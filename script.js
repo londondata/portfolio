@@ -67,44 +67,54 @@ const $aboutSection = $("#about");
 const $resumeSection = $("#resume");
 const $portfolioSection = $("#portfolio");
 const $terminalSection = $("#terminal");
+const $navLinks = $(".nav-links");
 
 const $backNav = $(".back-nav");
 
 // const terminalLinks = (e) => {};
 
-
+/*
+const toggleTerminal = (e) => {
+	$terminalSection.toggleClass("terminal-close");
+	$navLinks.toggleClass("nav-close");
+};
+*/
 
 $aboutLink.on("click", (e) => {
 	e.preventDefault();
-	$aboutSection.toggleClass("about-open");
+	$aboutSection.show().toggleClass("about-open");
 	$terminalSection.toggleClass("terminal-close");
+	$navLinks.toggleClass("nav-close");
 });
 
 $resumeLink.on("click", (e) => {
 	e.preventDefault();
-	$resumeSection.toggleClass("resume-open");
+	$resumeSection.show().toggleClass("resume-open");
 	$terminalSection.toggleClass("terminal-close");
+	$navLinks.toggleClass("nav-close");
 });
 
 $portfolioLink.on("click", (e) => {
 	e.preventDefault();
-	$portfolioSection.toggleClass("portfolio-open");
+	$portfolioSection.show().toggleClass("portfolio-open");
 	$terminalSection.toggleClass("terminal-close");
+	$navLinks.toggleClass("nav-close");
 });
 
 $backNav.on("click", (e) => {
 	e.preventDefault();
 
+	$terminalSection.toggleClass("terminal-close");
+	$navLinks.toggleClass("nav-close");
+
 	if ($aboutSection.hasClass("about-open")) {
 		$aboutSection.toggleClass("about-open");
-		$terminalSection.toggleClass("terminal-close");
 	}
 	if ($resumeSection.hasClass("resume-open")) {
 		$resumeSection.toggleClass("resume-open");
-		$terminalSection.toggleClass("terminal-close");
 	}
+
 	if ($portfolioSection.hasClass("portfolio-open")) {
 		$portfolioSection.toggleClass("portfolio-open");
-		$terminalSection.toggleClass("terminal-close");
 	}
 });

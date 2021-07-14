@@ -3,10 +3,11 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Courier New", Courier, monospace;
-	font-size: 24px;
+	font-size: 20px;
+	/* border: 1px solid red; */
 }
 
-/* Body Styling */
+/* === Body Styling === */
 
 html {
 	max-height: 100vh;
@@ -38,61 +39,50 @@ body::after {
 	);
 }
 
-/* Link Styling */
-
-a:link {
-	color: #d1d9df;
-	text-decoration: none;
-}
-
-a:visited {
-	color: #d1d9df;
-}
-
-a:hover {
-	color: #2b86b5;
-	font-size: 1.5em;
-	text-shadow: 0 0 15px #c8c8c8;
-}
-
 main {
 	overflow: hidden;
 }
 
-/* Terminal Font & Text Styling */
+/* ==== Link & Font Styling ==== */
 
-/* #terminal {
-} */
-
-.terminal-close {
-	display: none;
+a {
+	font-size: 1rem;
 }
 
-/* #terminal::after {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	border-radius: 25px;
-	z-index: -1;
-	background-color: rgba(0, 0, 0, 0.3);
-} */
-
-.terminal-section {
-	margin: 25px;
-	padding: 75px;
-	/* display: block; */
+a:link {
+	color: #2b86b5;
+	text-decoration: none;
 }
 
-#terminal-list {
-	list-style: none;
+a:visited {
+	color: #2b86b5;
 }
 
-.terminal-disappear {
-	display: none;
+a:hover {
+	color: rgb(65, 254, 253);
+	font-size: 1.1rem;
+	text-shadow: 0 0 12px #c8c8c8;
 }
+/* this needs a better hover color, more electric blue/cyberpunk color */
+
+.typing-style {
+	font-size: 1rem;
+	color: white;
+	text-shadow: 0 0 5px #c8c8c8;
+}
+
+/* === Back Nav === */
+
+.back-nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.back {
+	margin: 0.5rem;
+}
+
+/* Typing Styling  */
 
 /* .typing {
 	display: inline-block;
@@ -105,11 +95,6 @@ main {
 	margin: 0 auto;
 	animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
 } */
-
-.typing-style {
-	color: white;
-	text-shadow: 0 0 5px #c8c8c8;
-}
 
 @keyframes typing {
 	from {
@@ -136,7 +121,29 @@ main {
 	}
 }
 
-/* About Section */
+/* === Terminal Section === */
+
+/* #terminal {
+} */
+
+.terminal-section {
+	margin: 1rem;
+}
+
+#terminal-list {
+	list-style: none;
+}
+
+#terminal-list li {
+	padding: 0.1rem;
+}
+
+.terminal-close,
+.nav-close {
+	display: none;
+}
+
+/* === About Section === */
 
 #about {
 	position: absolute;
@@ -145,8 +152,9 @@ main {
 	bottom: 0;
 	right: 0;
 	transition: all 1s ease-in-out;
-	transform: translateX(-110%);
-	margin: 0.5em;
+	transform: translateX(-200%);
+	margin: 0.2rem;
+	display: none;
 }
 
 .about-open {
@@ -154,53 +162,29 @@ main {
 }
 
 .about-section {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: 0.5em;
-	margin: 0.5em;
+	display: inline-block;
+	padding: 0.25rem;
+	margin: 0.25rem;
 }
-.about-pic {
-	border-radius: 10px;
-	padding: 0.3em;
-	height: 50vh;
-	width: auto;
-	position: static;
-	z-index: 3;
-	background: none;
-}
-
-.about-text p {
-	font-size: 0.6em;
-	padding: 0.5em;
-}
-
-/* .about-text p a:link {
-	font-size: 1.3em;
-	color: #d1d9df;
-	text-decoration: none;
-}
-
-.about-text p a:visited {
-	font-size: 1.3em;
-	color: #d1d9df;
-}
-
-.about-text p a:hover {
-	font-size: 1.5em;
-	color: #2b86b5;
+/* .about-img-container {
 } */
 
-.back-nav {
-	display: flex;
-	justify-content: flex-end;
+.about-img {
+	border-radius: 10px;
+	padding: 0.3rem;
+	height: 50vh;
+	width: auto;
+	float: left;
+	position: static;
+	z-index: 3;
+	background: none !important;
+}
+.about-txt p {
+	font-size: 0.5rem;
+	padding: 0.3rem;
 }
 
-.back-nav a {
-	padding: 0.5rem;
-}
-
-/* Resume Section */
+/* === Resume Section === */
 
 #resume {
 	position: absolute;
@@ -210,46 +194,91 @@ main {
 	right: 0;
 	transition: all 0.5s ease-in-out;
 	transform: translateY(100%);
+	display: none;
+}
+
+.resume-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.resume-img {
+	height: 85vh;
+	width: auto;
+	margin-top: 0.3rem;
+	margin-bottom: 0.1rem;
+}
+
+@media only screen and (min-width 360px) and (max-width 640px) {
+	.resume-img {
+		height: 60vh;
+		width: auto;
+		margin-top: 0.3rem;
+		margin-bottom: 0.1rem;
+	}
 }
 
 .resume-open {
 	transform: translateY(0%) !important;
 }
 
-/* Portfolio Section */
+/* === Portfolio Section === */
 
 #portfolio {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
 	transition: all 1s ease-in-out;
-	transform: translateX(100%);
-}
-
-.portfolio-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 25px;
-	margin: 20px;
+	transform: translateX(200%);
+	display: none;
 }
 
 .portfolio-open {
 	transform: translateX(0%) !important;
 }
 
-/* Footer */
-.footer-container {
+.portfolio-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 15px;
+	margin: 1.1rem;
+}
+
+.portfolio-element {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
+
+.portfolio-piece {
+	width: 18vw;
+	height: auto;
+	border-radius: 10px;
+}
+
+/* === Footer Nav === */
+
 #footer {
 	position: fixed;
 	bottom: 5px;
+}
+
+.footer-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-links {
+	margin: 3rem;
+}
+
+.nav-links a {
+	padding: 5px;
 }
 
 .iContainer {
