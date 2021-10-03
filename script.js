@@ -80,6 +80,8 @@ const toggleTerminal = (e) => {
 };
 */
 
+// Navigation Links 
+
 $aboutLink.on("click", (e) => {
 	e.preventDefault();
 	$aboutSection.show().toggleClass("about-open");

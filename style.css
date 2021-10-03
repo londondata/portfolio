@@ -210,14 +210,14 @@ a:hover {
 	margin-bottom: 0.1rem;
 }
 
-@media only screen and (min-width 360px) and (max-width 640px) {
+/* @media only screen and (min-width 360px) and (max-width 640px) {
 	.resume-img {
 		height: 60vh;
 		width: auto;
 		margin-top: 0.3rem;
 		margin-bottom: 0.1rem;
 	}
-}
+} */
 
 .resume-open {
 	transform: translateY(0%) !important;
