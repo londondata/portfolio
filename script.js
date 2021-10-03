@@ -3,16 +3,61 @@
 // loop through each item (string) in the array
 // for each index in the loop, split, append to the DOM one item at a time over set interval
 
-const terminalOutputs = [
-	{ idx: 0, text: "welcome" },
-	{ idx: 0, text: "my name is teri london" },
-	{ idx: 0, text: "i am a software engineer," },
-	{ idx: 0, text: "ux|ui design dev," },
-	{ idx: 0, text: "educator && consultant." },
-	{ idx: 0, text: "click to find out more..." },
-];
+// const terminalOutputs = [
+// 	{ idx: 0, text: "welcome" },
+// 	{ idx: 0, text: "my name is teri london" },
+// 	{ idx: 0, text: "i am a software engineer," },
+// 	{ idx: 0, text: "ux|ui design dev," },
+// 	{ idx: 0, text: "educator && consultant." },
+// 	{ idx: 0, text: "click to find out more..." },
+// ];
 
 const $terminal = $("#terminal-list");
+
+const intro = () => {
+	const txt = $("#txt");
+	// const txt1 = $("#txt1");
+	// const txt2 = $("#txt2");
+	// const txt3 = $("#txt3");
+	// const txt4 = $("#txt4");
+	// const txt5 = $("#txt5");
+	// const txt6 = $("#txt6");
+
+	introTxt(500).then(() => {
+		txt.append("<p class='typewriter-text'>welcome</p>");
+
+		introTxt(4000).then(() => {
+			txt.append("<p class='typewriter-text'>my name is teri london</p>");
+
+			introTxt(4000).then(() => {
+				txt.append("<p class='typewriter-text'>i am a software engineer,</p>");
+
+				introTxt(4000).then(() => {
+					txt.append("<p class='typewriter-text'>ux|ui design dev,</p>");
+
+					introTxt(4000).then(() => {
+						txt.append(
+							"<p class='typewriter-text'>educator && consultant.</p>"
+						);
+
+						introTxt(4000).then(() => {
+							txt.append(
+								"<p class='typewriter-text'>click to find out more...</p>"
+							);
+						});
+					});
+				});
+			});
+		});
+	});
+};
+
+const introTxt = (ms) => {
+	return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+intro();
+introTxt();
 
 // typing animation
 const terminalTyping = () => {
@@ -29,6 +74,8 @@ const terminalTyping = () => {
 			output.idx++;
 			$terminaLi.text(output.text.slice(0, output.idx + 1));
 		}, 150);
+
+		terminalTyping();
 
 		// .text(output.text.slice(0, output.idx));
 
@@ -55,8 +102,6 @@ const terminalTyping = () => {
 	}
 };
 
-terminalTyping();
-
 // Link Listeners
 
 const $aboutLink = $(".about-link");
@@ -80,7 +125,7 @@ const toggleTerminal = (e) => {
 };
 */
 
-// Navigation Links 
+// Navigation Links
 
 $aboutLink.on("click", (e) => {
 	e.preventDefault();

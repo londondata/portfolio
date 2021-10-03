@@ -9,7 +9,7 @@
 
 /* === Body Styling === */
 
-html {
+/* html {
 	max-height: 100vh;
 	max-width: 100vw;
 	overflow: hidden;
@@ -37,8 +37,42 @@ body::after {
 		transparent 1px,
 		transparent 2px
 	);
+} */
+html {
+	background-color: black;
+	background-image: radial-gradient(rgba(24, 103, 103, 0.75), black 120%);
+	height: 100vh;
+	width: 100vw;
+	color: white;
+	font-family: "Courier New", monospace;
+	text-shadow: 0 0 5px #c8c8c8;
 }
 
+/* html::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+  } */
+body::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: repeating-linear-gradient(
+		0deg,
+		rgba(0, 0, 0, 0.15),
+		rgba(0, 0, 0, 0.15) 1px,
+		transparent 1px,
+		transparent 2px
+	);
+}
 main {
 	overflow: hidden;
 }
@@ -96,6 +130,23 @@ a:hover {
 	animation: typing 3.5s steps(40, end), blink 1s step-end infinite;
 } */
 
+/* .typewriter {
+	display: inline-block;
+} */
+
+.typewriter-text {
+	/* display: inline-block; */
+	overflow: hidden;
+	letter-spacing: 0.27em;
+	white-space: nowrap;
+	font-weight: 700;
+	font-size: 1.2em;
+	border-right: 0.15em solid white;
+	margin: 0 auto;
+	width: 40vw;
+	animation: typing 3.5s steps(40, end), blink 0.8s step-end infinite;
+}
+
 @keyframes typing {
 	from {
 		width: 0%;
@@ -110,23 +161,22 @@ a:hover {
 	to {
 		border-color: transparent;
 	}
-	40% {
-		border-color: transparent;
-	}
-	60% {
-		border-color: white;
-	}
-	100% {
+	50% {
 		border-color: white;
 	}
 }
 
 /* === Terminal Section === */
 
+#terminal {
+	margin: 30px;
+	padding: 75px;
+}
+
 /* #terminal {
 } */
 
-.terminal-section {
+/* .terminal-section {
 	margin: 1rem;
 }
 
@@ -136,7 +186,7 @@ a:hover {
 
 #terminal-list li {
 	padding: 0.1rem;
-}
+} */
 
 .terminal-close,
 .nav-close {
